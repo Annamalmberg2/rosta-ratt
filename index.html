@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Rösta rätt-skolan förklarar demokrati, valets nivåer och partiernas idéhistoria på vanlig svenska.">
+    <title>Rösta rätt-skolan</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%231f3b4d'/%3E%3Cpath d='M17 17h30v34H17z' fill='%23fff8e8'/%3E%3Cpath d='M23 26h18M23 34h18M23 42h11' stroke='%231f3b4d' stroke-width='4' stroke-linecap='round'/%3E%3Cpath d='M42 14l7 7' stroke='%23f0b84a' stroke-width='6' stroke-linecap='round'/%3E%3C/svg%3E">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="hero" aria-labelledby="title">
+        <p class="eyebrow">Rösta rätt-skolan</p>
+        <h1 id="title">Fatta valet utan att bli tillsagd vad du ska tycka.</h1>
+        <p class="lead">
+          En lugn, begriplig skola om demokrati, de tre valen och varför samma parti
+          inte alltid behöver vara rätt svar på alla valsedlar.
+        </p>
+      </section>
+
+      <section class="learning-surface" aria-label="Lektionsyta">
+        <nav class="lesson-nav" aria-label="Lektioner">
+          <button class="lesson-tab is-active" type="button" data-lesson="0">1. Tre val</button>
+          <button class="lesson-tab" type="button" data-lesson="1">2. Vem bestämmer?</button>
+          <button class="lesson-tab" type="button" data-lesson="2">3. Partiernas rötter</button>
+          <button class="lesson-tab" type="button" data-lesson="3">4. Demokrati i praktiken</button>
+        </nav>
+
+        <article class="lesson-card">
+          <div class="lesson-copy">
+            <p id="lessonKicker" class="kicker">Lektion 1</p>
+            <h2 id="lessonTitle"></h2>
+            <p id="lessonBody"></p>
+            <ul id="lessonBullets" class="plain-list"></ul>
+
+            <div class="controls">
+              <button id="prevLesson" class="secondary" type="button">Tillbaka</button>
+              <button id="nextLesson" class="primary" type="button">Nästa</button>
+            </div>
+          </div>
+
+          <div class="lesson-board" aria-label="Visuell sammanfattning">
+            <div id="boardContent"></div>
+          </div>
+        </article>
+      </section>
+
+      <section class="quiz-panel" aria-labelledby="quizTitle">
+        <div>
+          <p class="kicker">Snabbkoll</p>
+          <h2 id="quizTitle">Vem bestämmer mest?</h2>
+          <p id="quizQuestion"></p>
+        </div>
+
+        <div id="quizOptions" class="quiz-options"></div>
+        <p id="quizFeedback" class="feedback" aria-live="polite"></p>
+      </section>
+
+      <section class="closing">
+        <h2>Det här är inte en valkompass.</h2>
+        <p>
+          Poängen är inte att pressa fram en partilogga. Poängen är att förstå kartan:
+          vad demokratin består av, var beslut fattas och vilka frågor du själv vill följa upp.
+        </p>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
+</html>

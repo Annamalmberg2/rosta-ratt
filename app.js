@@ -305,6 +305,14 @@ function buildMarkdown() {
   rows.push("- Hur kan jag bedöma genomförandeförmåga utan att fastna i partilojalitet?");
   rows.push("- Vad behöver jag dubbelkolla hos Valmyndigheten innan jag röstar?");
 
+  rows.push("## Om smidet");
+  rows.push("Anna på AiNNOVA gick på promenad och lyssnade på Nördarnas podd: https://youtu.be/gZNUVRRiNAw");
+  rows.push("Patrik Stenberg och David Stavegård förklarade valet så begripligt att det blev startskottet för den här korta sammanställningen. Skolan bygger på Annas läsning av poddens YouTube-transkription och blev samtidigt hennes första försök att bygga tillsammans med OpenAI Codex.");
+  rows.push("Det här är inte en officiell produkt från podden, utan ett enkelt sätt att skicka fler vidare till deras förklaring.");
+  rows.push("Ett tidigare bygge med Claude Code heter Motvikten: ett parti som inte går att rösta på, men som ställer frågor varje parti borde tåla.");
+  rows.push("Bok: https://annamalmberg2.github.io/forklara-ai/motvikten.html");
+  rows.push("Interaktiv programvara: https://annamalmberg2.github.io/forklara-ai/index.html#motvikten-0");
+
   return rows.join("\n\n");
 }
 

@@ -87,6 +87,7 @@ h1 {
 .quiz-panel,
 .party-panel,
 .ai-panel,
+.origin-panel,
 .closing {
   border: 1px solid var(--line);
   border-radius: 8px;
@@ -136,6 +137,7 @@ h1 {
 .quiz-panel h2,
 .party-panel h2,
 .ai-panel h2,
+.origin-panel h2,
 .closing h2 {
   margin-bottom: 12px;
   font-size: clamp(1.65rem, 3vw, 2.5rem);
@@ -146,6 +148,7 @@ h1 {
 .lesson-copy p,
 .section-intro p,
 .ai-panel p,
+.origin-copy p,
 .closing p,
 #quizQuestion {
   color: var(--muted);
@@ -298,12 +301,23 @@ h1 {
 }
 
 .quiz-panel,
-.ai-panel {
+.ai-panel,
+.origin-panel {
   display: grid;
   grid-template-columns: minmax(250px, 0.8fr) 1fr;
   gap: 20px;
   margin-top: 18px;
   padding: 22px;
+}
+
+a {
+  color: var(--blue);
+  font-weight: 800;
+  text-underline-offset: 3px;
+}
+
+.origin-copy p:last-child {
+  margin-bottom: 0;
 }
 
 .quiz-options {
@@ -429,7 +443,8 @@ h1 {
 @media (max-width: 920px) {
   .lesson-card,
   .quiz-panel,
-  .ai-panel {
+  .ai-panel,
+  .origin-panel {
     grid-template-columns: 1fr;
   }
 
@@ -466,6 +481,7 @@ h1 {
   .quiz-panel,
   .party-panel,
   .ai-panel,
+  .origin-panel,
   .closing {
     padding: 16px;
   }
@@ -499,6 +515,7 @@ h1 {
   .learning-surface,
   .party-panel,
   .ai-panel,
+  .origin-panel,
   .closing {
     box-shadow: none;
     border: 0;

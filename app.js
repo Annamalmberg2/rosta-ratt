@@ -23,18 +23,29 @@ const lessons = [
   },
   {
     kicker: "Lektion 3",
+    title: "Rösta med både hjärta och verktygslåda.",
+    body: "Det är lätt att blanda ihop vad man känner sig som politiskt med vem som faktiskt kan få något gjort på platsen där man bor.",
+    bullets: [
+      "Ideologi hjälper dig förstå riktning: vad partiet brukar mena att samhället behöver mest.",
+      "Sakfrågor hjälper dig förstå behov: vad som faktiskt behöver bli bättre i ditt liv och din närmiljö.",
+      "Genomförandeförmåga hjälper dig förstå ansvar: vem verkar kunna göra arbetet, samarbeta och följa upp?"
+    ],
+    board: "balance"
+  },
+  {
+    kicker: "Lektion 4",
     title: "Partier är inte bara loggor. De kommer ur idéer.",
     body: "Partiernas historia hjälper dig förstå varför de ofta svarar olika på samma fråga. Det betyder inte att historien bestämmer allt, men den förklarar mycket.",
     bullets: [
-      "Socialism och socialdemokrati betonar gemensamma lösningar, välfärd och minskade klyftor.",
-      "Liberalism betonar individens frihet, rättigheter, företagande och valmöjligheter.",
-      "Konservatism betonar traditioner, stabilitet, institutioner och försiktigare förändring.",
-      "Miljörörelsen sätter ekologiska gränser och hållbarhet i centrum."
+      "Socialdemokrati och vänstertradition betonar välfärd, jämlikhet, arbete och gemensamma lösningar.",
+      "Liberalism betonar individens frihet, rättigheter, utbildning, företagande och valmöjligheter.",
+      "Konservativa traditioner betonar stabilitet, ansvar, institutioner, familj, trygghet och samhällsgemenskap.",
+      "Miljö- och centertraditioner betonar planetens gränser, landsbygd, närhet till beslut och lokalt självbestämmande."
     ],
     board: "ideas"
   },
   {
-    kicker: "Lektion 4",
+    kicker: "Lektion 5",
     title: "Demokrati är mer än valdagen.",
     body: "Att rösta är viktigt, men demokrati är också att kunna granska, ändra sig, ställa frågor och förstå vem som bär ansvar.",
     bullets: [
@@ -43,6 +54,57 @@ const lessons = [
       "Det är rimligt att rösta olika i kommun, region och riksdag om verkligheten pekar åt olika håll."
     ],
     board: "questions"
+  }
+];
+
+const parties = [
+  {
+    abbr: "S",
+    name: "Socialdemokraterna",
+    roots: "Arbetarrörelsen och folkhemstanken.",
+    lens: "Ser ofta stark välfärd, arbete och minskade klyftor som samhällets bärande uppgift."
+  },
+  {
+    abbr: "M",
+    name: "Moderaterna",
+    roots: "Höger- och liberalkonservativ tradition.",
+    lens: "Betonar ofta arbete, ansvar, ekonomi, lag och ordning samt fungerande institutioner."
+  },
+  {
+    abbr: "SD",
+    name: "Sverigedemokraterna",
+    roots: "Nationalkonservativ tradition.",
+    lens: "Betonar ofta nationell sammanhållning, trygghet, migration och kulturell kontinuitet."
+  },
+  {
+    abbr: "V",
+    name: "Vänsterpartiet",
+    roots: "Socialistisk och feministisk vänstertradition.",
+    lens: "Betonar ofta jämlikhet, offentligt ansvar, arbetsvillkor och kritik mot privatiseringar."
+  },
+  {
+    abbr: "C",
+    name: "Centerpartiet",
+    roots: "Bondeförbund, landsbygd och decentralisering.",
+    lens: "Betonar ofta lokal frihet, företagande, landsbygd, miljö och beslut nära människor."
+  },
+  {
+    abbr: "KD",
+    name: "Kristdemokraterna",
+    roots: "Kristdemokratisk idé om människovärde och gemenskaper.",
+    lens: "Betonar ofta familj, omsorg, civilsamhälle, vård och socialt ansvar."
+  },
+  {
+    abbr: "MP",
+    name: "Miljöpartiet",
+    roots: "Miljörörelsen och gröna idéer.",
+    lens: "Betonar ofta klimat, biologisk mångfald, hållbarhet och globalt ansvar."
+  },
+  {
+    abbr: "L",
+    name: "Liberalerna",
+    roots: "Liberal tradition med stark utbildningsprofil.",
+    lens: "Betonar ofta frihet, skola, bildning, rättigheter och individens möjligheter."
   }
 ];
 
@@ -75,6 +137,9 @@ const tabs = document.querySelectorAll(".lesson-tab");
 const quizQuestion = document.querySelector("#quizQuestion");
 const quizOptions = document.querySelector("#quizOptions");
 const quizFeedback = document.querySelector("#quizFeedback");
+const partyGrid = document.querySelector("#partyGrid");
+const printButton = document.querySelector("#printButton");
+const shareAiButton = document.querySelector("#shareAiButton");
 
 let lessonIndex = 0;
 let quizIndex = 0;
@@ -96,6 +161,16 @@ function boardTemplate(type) {
         <section class="decision-card"><h3>Skolmat</h3><p>Titta först på kommunen.</p></section>
         <section class="decision-card"><h3>Vårdköer</h3><p>Titta först på regionen.</p></section>
         <section class="decision-card"><h3>Strafflagar</h3><p>Titta först på riksdagen.</p></section>
+      </div>
+    `;
+  }
+
+  if (type === "balance") {
+    return `
+      <div class="balance-list">
+        <section class="balance-item"><strong>1. Riktning</strong><span>Vilken samhällsidé verkar rimlig för dig?</span></section>
+        <section class="balance-item"><strong>2. Behov</strong><span>Vad behöver bli bättre där du faktiskt lever?</span></section>
+        <section class="balance-item"><strong>3. Förmåga</strong><span>Vem kan genomföra, samarbeta och följa upp?</span></section>
       </div>
     `;
   }
@@ -137,6 +212,17 @@ function renderLesson() {
   });
 }
 
+function renderParties() {
+  partyGrid.innerHTML = parties.map((party) => `
+    <article class="party-card">
+      <span class="party-abbr">${party.abbr}</span>
+      <h3>${party.name}</h3>
+      <p><strong>Rötter:</strong> ${party.roots}</p>
+      <p>${party.lens}</p>
+    </article>
+  `).join("");
+}
+
 function renderQuiz() {
   const item = quizItems[quizIndex];
   quizQuestion.textContent = item.question;
@@ -168,6 +254,56 @@ function answerQuiz(button, option, item) {
   }
 }
 
+function buildMarkdown() {
+  const rows = [
+    "# Rösta rätt-skolan",
+    "En saklig, opolitisk grund för att förstå svensk demokrati, valets nivåer och partiernas idéhistoriska rötter.",
+    "Använd detta som underlag. Faktakolla, nyansera och ställ följdfrågor. Hjälp mig förstå, inte välja åt mig.",
+    "Partilistan utgår från Riksdagens information om partierna i riksdagen 2022-2026 och Valmyndighetens rapportpartier inför riksdagsvalet 2026."
+  ];
+
+  lessons.forEach((lesson) => {
+    rows.push(`## ${lesson.title}`);
+    rows.push(lesson.body);
+    lesson.bullets.forEach((bullet) => rows.push(`- ${bullet}`));
+  });
+
+  rows.push("## Sveriges riksdagspartier, kort och försiktigt");
+  parties.forEach((party) => {
+    rows.push(`### ${party.name} (${party.abbr})`);
+    rows.push(`Rötter: ${party.roots}`);
+    rows.push(party.lens);
+  });
+
+  rows.push("## Bra frågor att ta vidare");
+  rows.push("- Vilka påståenden ovan behöver faktakollas eller nyanseras?");
+  rows.push("- Hur skiljer sig partiets historiska rötter från dess nuvarande politik?");
+  rows.push("- Vilka frågor hör hemma i kommun, region respektive riksdag?");
+  rows.push("- Hur kan jag bedöma genomförandeförmåga utan att fastna i partilojalitet?");
+
+  return rows.join("\n\n");
+}
+
+function copyForAi() {
+  const markdown = buildMarkdown();
+  const original = shareAiButton.textContent;
+  const done = () => {
+    shareAiButton.textContent = "Kopierat";
+    window.setTimeout(() => {
+      shareAiButton.textContent = original;
+    }, 1800);
+  };
+
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(markdown).then(done).catch(() => {
+      window.prompt("Kopiera texten och klistra in i valfri AI:", markdown);
+    });
+    return;
+  }
+
+  window.prompt("Kopiera texten och klistra in i valfri AI:", markdown);
+}
+
 prevLesson.addEventListener("click", () => {
   lessonIndex = Math.max(0, lessonIndex - 1);
   renderLesson();
@@ -185,5 +321,9 @@ tabs.forEach((tab) => {
   });
 });
 
+printButton.addEventListener("click", () => window.print());
+shareAiButton.addEventListener("click", copyForAi);
+
 renderLesson();
 renderQuiz();
+renderParties();

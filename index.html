@@ -17,14 +17,19 @@
           En lugn, begriplig skola om demokrati, de tre valen och varför samma parti
           inte alltid behöver vara rätt svar på alla valsedlar.
         </p>
+        <div class="hero-actions" aria-label="Dela eller skriv ut">
+          <button id="shareAiButton" class="secondary" type="button">Dela med AI</button>
+          <button id="printButton" class="secondary" type="button">Skriv ut</button>
+        </div>
       </section>
 
       <section class="learning-surface" aria-label="Lektionsyta">
         <nav class="lesson-nav" aria-label="Lektioner">
           <button class="lesson-tab is-active" type="button" data-lesson="0">1. Tre val</button>
           <button class="lesson-tab" type="button" data-lesson="1">2. Vem bestämmer?</button>
-          <button class="lesson-tab" type="button" data-lesson="2">3. Partiernas rötter</button>
-          <button class="lesson-tab" type="button" data-lesson="3">4. Demokrati i praktiken</button>
+          <button class="lesson-tab" type="button" data-lesson="2">3. Ideologi och nytta</button>
+          <button class="lesson-tab" type="button" data-lesson="3">4. Partiernas rötter</button>
+          <button class="lesson-tab" type="button" data-lesson="4">5. Demokrati i praktiken</button>
         </nav>
 
         <article class="lesson-card">
@@ -57,11 +62,39 @@
         <p id="quizFeedback" class="feedback" aria-live="polite"></p>
       </section>
 
+      <section class="party-panel" aria-labelledby="partyTitle">
+        <div class="section-intro">
+          <p class="kicker">Sveriges riksdagspartier</p>
+          <h2 id="partyTitle">Åtta berättelser om vad samhället behöver mest.</h2>
+          <p>
+            Det här är korta, försiktiga ingångar. De ersätter inte partiernas egna program,
+            men hjälper dig förstå vilken historisk berättelse varje parti ofta bär med sig.
+          </p>
+        </div>
+        <div id="partyGrid" class="party-grid"></div>
+      </section>
+
+      <section class="ai-panel" aria-labelledby="aiTitle">
+        <div>
+          <p class="kicker">Fördjupa utan att fastna</p>
+          <h2 id="aiTitle">Ta med grunden till en AI och fråga vidare.</h2>
+        </div>
+        <p>
+          Många vet inte vad nästa fråga ska vara. Därför kan du kopiera skolans innehåll
+          som Markdown och klistra in i valfri AI med uppmaningen att faktakolla, nyansera
+          och förklara mer på vanlig svenska.
+        </p>
+      </section>
+
       <section class="closing">
         <h2>Det här är inte en valkompass.</h2>
         <p>
           Poängen är inte att pressa fram en partilogga. Poängen är att förstå kartan:
           vad demokratin består av, var beslut fattas och vilka frågor du själv vill följa upp.
+        </p>
+        <p class="source-note">
+          Partilistan utgår från Riksdagens information om partierna i riksdagen 2022-2026
+          och Valmyndighetens rapportpartier inför riksdagsvalet 2026.
         </p>
       </section>
     </main>

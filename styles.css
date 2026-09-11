@@ -13,6 +13,11 @@
   --shadow: 0 18px 48px rgba(31, 59, 77, 0.14);
 }
 
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -115,6 +120,7 @@ h1 {
   color: var(--ink);
   font-weight: 800;
   text-align: left;
+  overflow-wrap: anywhere;
 }
 
 .lesson-tab:last-child {
@@ -314,6 +320,13 @@ a {
   color: var(--blue);
   font-weight: 800;
   text-underline-offset: 3px;
+  overflow-wrap: anywhere;
+}
+
+a:focus-visible,
+button:focus-visible {
+  outline: 3px solid rgba(240, 184, 74, 0.95);
+  outline-offset: 3px;
 }
 
 .origin-copy p:last-child {
@@ -467,14 +480,21 @@ a {
     padding-top: 18px;
   }
 
-  .lesson-nav,
   .quiz-options {
     grid-template-columns: 1fr;
+  }
+
+  .lesson-nav {
+    grid-template-columns: repeat(6, minmax(142px, 1fr));
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x proximity;
   }
 
   .lesson-tab {
     border-right: 0;
     border-bottom: 1px solid var(--line);
+    scroll-snap-align: start;
   }
 
   .lesson-card,

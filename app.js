@@ -34,6 +34,18 @@ const lessons = [
   },
   {
     kicker: "Lektion 4",
+    title: "Några regler gör valet mycket lättare att förstå.",
+    body: "Det svenska valsystemet har spärrar, personröster och blankröster. Det låter tekniskt, men grunden är enkel: först räknas partiernas stöd, sedan vilka personer som får platserna.",
+    bullets: [
+      "I riksdagsvalet behöver ett parti normalt minst 4 procent i hela landet för att delta i mandatfördelningen.",
+      "Ett parti kan också få fasta mandat i en riksdagsvalkrets om det får minst 12 procent där.",
+      "En personröst lyfter en kandidat inom partiet. Den gör inte att partiet får fler mandat.",
+      "En blank röst redovisas i statistiken, men räknas som ogiltig och påverkar inte mandatfördelningen."
+    ],
+    board: "rules"
+  },
+  {
+    kicker: "Lektion 5",
     title: "Partier är inte bara loggor. De kommer ur idéer.",
     body: "Partiernas historia hjälper dig förstå varför de ofta svarar olika på samma fråga. Det betyder inte att historien bestämmer allt, men den förklarar mycket.",
     bullets: [
@@ -45,7 +57,7 @@ const lessons = [
     board: "ideas"
   },
   {
-    kicker: "Lektion 5",
+    kicker: "Lektion 6",
     title: "Demokrati är mer än valdagen.",
     body: "Att rösta är viktigt, men demokrati är också att kunna granska, ändra sig, ställa frågor och förstå vem som bär ansvar.",
     bullets: [
@@ -175,6 +187,17 @@ function boardTemplate(type) {
     `;
   }
 
+  if (type === "rules") {
+    return `
+      <div class="rule-list">
+        <section class="rule-card"><strong>4 procent</strong><span>Huvudregeln för att få mandat i riksdagen.</span></section>
+        <section class="rule-card"><strong>12 procent</strong><span>Kan ge fasta mandat i en enskild riksdagsvalkrets.</span></section>
+        <section class="rule-card"><strong>Personröst</strong><span>Påverkar vilka kandidater som tar partiets platser.</span></section>
+        <section class="rule-card"><strong>Blankröst</strong><span>Syns i statistiken men påverkar inte mandaten.</span></section>
+      </div>
+    `;
+  }
+
   if (type === "ideas") {
     return `
       <div class="idea-grid">
@@ -259,7 +282,7 @@ function buildMarkdown() {
     "# Rösta rätt-skolan",
     "En saklig, opolitisk grund för att förstå svensk demokrati, valets nivåer och partiernas idéhistoriska rötter.",
     "Använd detta som underlag. Faktakolla, nyansera och ställ följdfrågor. Hjälp mig förstå, inte välja åt mig.",
-    "Partilistan utgår från Riksdagens information om partierna i riksdagen 2022-2026 och Valmyndighetens rapportpartier inför riksdagsvalet 2026."
+    "Partilistan utgår från Riksdagens information om partierna i riksdagen 2022-2026 och Valmyndighetens rapportpartier inför riksdagsvalet 2026. Valsystemets regler om spärrar, personröstning och blankröst bygger på Valmyndighetens information."
   ];
 
   lessons.forEach((lesson) => {
@@ -280,6 +303,7 @@ function buildMarkdown() {
   rows.push("- Hur skiljer sig partiets historiska rötter från dess nuvarande politik?");
   rows.push("- Vilka frågor hör hemma i kommun, region respektive riksdag?");
   rows.push("- Hur kan jag bedöma genomförandeförmåga utan att fastna i partilojalitet?");
+  rows.push("- Vad behöver jag dubbelkolla hos Valmyndigheten innan jag röstar?");
 
   return rows.join("\n\n");
 }

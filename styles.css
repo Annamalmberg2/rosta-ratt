@@ -100,7 +100,7 @@ h1 {
 
 .lesson-nav {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   border-bottom: 1px solid var(--line);
   background: #fbf4e6;
 }
@@ -390,6 +390,28 @@ h1 {
   background: var(--blue);
   color: white;
   font-weight: 900;
+}
+
+.rule-list {
+  display: grid;
+  gap: 10px;
+}
+
+.rule-card {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 13px;
+  background: white;
+}
+
+.rule-card strong {
+  display: block;
+  margin-bottom: 4px;
+}
+
+.rule-card span {
+  color: var(--muted);
+  line-height: 1.42;
 }
 
 .closing p {

@@ -516,13 +516,23 @@ button:focus-visible {
 }
 
 @media print {
+  @page {
+    margin: 22mm 24mm 20mm;
+  }
+
   body {
     background: white;
   }
 
   .app-shell {
-    width: auto;
-    padding: 0;
+    width: min(170mm, 100%);
+    margin: 0 auto;
+    padding: 8mm 0 0;
+  }
+
+  .hero {
+    max-width: none;
+    margin-bottom: 14mm;
   }
 
   .hero-actions,

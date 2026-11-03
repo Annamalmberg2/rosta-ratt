@@ -4,6 +4,10 @@ En lokal, statisk webbapp som förklarar demokrati, valets nivåer och partierna
 
 Målet är inte att vara en valkompass. Målet är att ge känslan: "Jösses, nu fattar jag hur valet hänger ihop."
 
+**Live:** https://annamalmberg2.github.io/rosta-ratt/
+(GitHub Pages — repot `Annamalmberg2/rosta-ratt`. Fortfarande en prototyp
+som byggs vidare, men den är uppe.)
+
 ## Kör lokalt
 
 Ingen installation behövs.
@@ -23,4 +27,4 @@ Ingen installation behövs.
 - Göra fler korta lektioner om hur kommuner, regioner och riksdag styrs.
 - Lägga till en tydligare tidslinje över partiernas idéhistoria.
 - Spara användarens framsteg lokalt.
-- Publicera gratis via GitHub Pages när versionen känns värd att visa.
+- Putsa vidare nu när den väl är publicerad (GitHub Pages, se ovan).
